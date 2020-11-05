@@ -11,7 +11,7 @@ class CreateTaskTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function testTaskTableHasExpectedColumns()
     {
         Schema::create('task', function (Blueprint $table) {
             $table->id();

@@ -11,12 +11,14 @@ class CreateAttachmentTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function testAttachmentTableHasExpectedColumns()
     {
         Schema::create('attachment', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('file name');
+            $table->date('created_at');
+            $table->date('updated_at');
         });
     }
 
