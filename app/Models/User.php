@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Utilisateur as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Les attribut qui se remplissent normaux.
      *
      * @var array
      */
@@ -24,7 +24,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * L'atribut caché mot de passe ect.
      *
      * @var array
      */
@@ -33,21 +33,32 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function takePart()
+    /**
+     * Attribut type : natif.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+    public function comment()
     {
-        return $this->hasMany('App\Models\Task');
+        return $this->hasMany('App\Models\Comment', 'foreign_key', 'local_key');
     }
-
-    public function create()
+    public function attachment()
     {
-        return $this->hasMany('App\Models\Task');
+        return $this->hasMany('App\Models\Attachment', 'foreign_key', 'local_key');
     }
-    public function write()
+    public function owner()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Board', 'foreign_key', 'local_key');
     }
-    public function put()
+    public function boardUser()
     {
-        return $this->hasMany('App\Models\Attachment');
+        return $this->hasMany('App\Models\BoardUser', 'foreign_key', 'local_key');
+    }
+    public function taskUser()
+    {
+        return $this->hasMany('App\Models\Task', 'foreign_key', 'local_key');
     }
 }
