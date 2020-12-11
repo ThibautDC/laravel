@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class AttachmentSeeder extends Seeder
 {
@@ -15,9 +13,6 @@ class AttachmentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('attachment')->insert([
-            'title' => Str::random(10),
-            'file name' => Str::random(10).'.txt',
-        ]);
+        //
     }
 }

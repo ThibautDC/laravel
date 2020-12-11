@@ -4,28 +4,37 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
+/**
+ * Représente un fichier attachée à une tâche par un utilisateur
+ * 
+ * @author Nicolas Faessel <nicolas.faessel@ynov.com>
+ * 
+ */
 class Attachment extends Model
 {
     use HasFactory;
-        
+
+
     /**
-     * 
+     * Renvoi l'utilisateur qui a posé la pièce jointe
      *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    protected $fillable = [
-        'file',
-        'filename',
-        'size',
-        'type',
-    ];
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'foreign_key', 'other_key');
+        return $this->belongsTo(User::class);
     }
+
+
+    /**
+     * Renvoi la tâche à laquelle la pièce jointe est attachée
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function task()
     {
-        return $this->hasOne('App\Models\Task', 'foreign_key', 'local_key');
+        return $this->belongsTo('App\Models\Task');
     }
 }

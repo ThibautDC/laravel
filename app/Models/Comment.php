@@ -4,26 +4,36 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
+/**
+ * Représente un commentaire rédigé sur une tâche par un utilisateur
+ * 
+ * @author Nicolas Faessel <nicolas.faessel@ynov.com>
+ * 
+ */
 class Comment extends Model
 {
     use HasFactory;
-        /**
-     * 
+
+    /**
+     * Renvoi l'utilisateur qui a écrit le commentaire
      *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    protected $fillable = [
-        'text',
-        'created_at',
-        'uptdated_at',
-    ];
-    public function creer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\User', 'foreign_key');// relation 11 entre commentaire et utilisateur (un commentaire n'est associer qu'a un seul utilisateur)
+        return $this->belongsTo(User::class);
     }
-    public function appartenance()
+
+
+    /**
+     * Renvoi la tâche à laquelle est associé le commentaire
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function task()
     {
-        return $this->hasOne('App\Models\Task', 'foreign_key');// relation 11 entre commentaire et tache (un commentaire n'est associer qu'a une seule tache)
+        return $this->belongsTo('App\Models\Task');
     }
 }
