@@ -1,14 +1,17 @@
 TP Todo
 
-Pour commencer ce TP, nous avons d'abord réalisé un mcd avec toute la classe.
+-   Pour commencer ce TP, il nous fallait un MCD que l'on a fait avec toute la classe. Grace a ce dernier,
+nous avons pu avoir une meilleure vue d'ensemble.
 
-Nous avons ensuite créé les migrations, les models , les factories et les seeders grace a la documentation de Laravel.
-Nous avons aussi utilisé blade comme moteur de template. Grace a ceci, en utilisant la commande "php artisan serv" nous arrivons sur une page laravel jetstream avec une option pour s'enregistrer ou se connecter
-Apres ceci, nous arrivons sur le dashboard, ce qui nous permet de consulter, creer, supprimer ou modifier une board de tache.
+-   Nous devons créer les migrations entre les différentes tables, les models, les factories et les seeders en 
+nous aidant de la documentation de Laravel.
 
-Problemes rencontré :
+-   Nous avons aussi utilisé Blade, qui est un moteur de template, pour rendre notre TP plus joli a l'oeil.
+Avec la commande ``php artisan serv`` nous arrivons sur la page de Laravel Jetstream.
 
--   Meme avec une doc fournie, j'ai eu beaucoup de mal a comprendre blade.
--   Je me suis pas mal perdu dans la doc en general.
+-   Nous arrivons donc sur le dashboard qui nous permet de voir, de créer, de modifier et supprimer les boards contenant les différentes tasks attribué aux users
 
-J'ai aussi eu quelques problemes personnelles qui m'ont empeché de pouvoir travailler a ma guise.
+-   Au niveau des difficultés, je suis me suis pas mal perdue dans la doc, que ca soit de Laravel ou bien de Blade, ce qui m'a pas mal ralentit. J'ai aussi eu des problèmes à comprendre comment faire les routes. J'ai eu aussi quelques problèmes personnels durant les vacances. 
+
+-   Pour conclure, ce TP fut enrichissant et m'a fait découvrir la puissance de Laravel. Je vais surement me renseigner plus profondément sur ce framework et faire rajouter des choses a ce TP.
+
